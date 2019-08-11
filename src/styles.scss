@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bulma/bulma';
+@import './assets/scss/variables';
+@import './assets/scss/typography';
+@import './assets/scss/helpers';
+@import './assets/scss/partials/footer';
+@import './assets/scss/partials/form';
+@import './assets/scss/partials/buttons';
+@import './assets/scss/components/menu';
+@import './assets/scss/components/page';

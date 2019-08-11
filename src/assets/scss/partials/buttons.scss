@@ -1,0 +1,17 @@
+.button {
+  &.is-primary {
+    background-color: $button;
+    &:hover {
+      background-color: $button-hover;
+    }
+    &.is-outlined {
+      color: $button;
+      border-color: $button;
+      &:hover {
+        background: transparent;
+        color: $button;
+        border-color: $button;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.footer-menu {
+  @include until($desktop) {
+    display: block;
+  }
+}

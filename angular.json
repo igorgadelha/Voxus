@@ -28,9 +28,15 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/bulma/css/bulma.min.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js",
+              "src/assets/js/default.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,9 +94,15 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/bulma/css/bulma.min.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js",
+              "src/assets/js/default.js"
+            ]
           }
         },
         "lint": {

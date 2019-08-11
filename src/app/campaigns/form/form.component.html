@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="section">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title has-text-centered">Você está a poucos passos de otimizar suas campanhas!</h2>
+        <p class="help is-danger"  class="subtitle has-text-centered">Queremos conhecer mais sobre sua empresa para melhorar sua experiência com a Voxus.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section is-narrow">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <form [formGroup]="form" class="box" (ngSubmit)="onSubmit()">
+          <div class="field">
+            <div class="control">
+              <input type="text" formControlName="name" class="input" placeholder="Nome completo" />
+              <label class="label">Nome completo</label>
+            </div>
+            <div *ngIf="form.controls.name.errors  && form.controls.name.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.name.errors.required">Este campo é obrigatório!</p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input type="text"
+              class="input"
+              formControlName="phone"
+              placeholder="Telefone"
+              ng2TelInput
+              [ng2TelInputOptions]="{initialCountry: 'br'}"
+              (hasError)="hasError($event)"
+              (ng2TelOutput)="getNumber($event)"
+              (countryChange)="onCountryChange($event)"
+              [textMask]='{mask: mask, guide: showMask, showMask: showMask}'
+              />
+              <label class="label">Telefone</label>
+              <!-- <input type="text" formControlName="phone" class="input" placeholder="Telefone" [ngClass]="{ 'is-danger': submitted && form.controls.phone.errors }" /> -->
+            </div>
+            <div *ngIf="form.controls.phone.errors  && form.controls.phone.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.phone.errors.required">Este campo é obrigatório!</p>
+              <p class="help is-danger"  *ngIf="form.controls.phone.errors.minlength">Telefone inválido.</p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input type="text" formControlName="email" class="input" placeholder="Endereço de e-mail" />
+              <label class="label">Endereço de e-mail</label>
+            </div>
+            <div *ngIf="form.controls.email.errors && form.controls.email.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.email.errors.required">Este campo é obrigatório!</p>
+              <p class="help is-danger"  *ngIf="form.controls.email.errors.email">e-mail inválido.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <input type="text" formControlName="company" class="input" placeholder="Nome da empresa" />
+              <label class="label">Nome da empresa</label>
+            </div>
+            <div *ngIf="form.controls.company.errors && form.controls.company.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.company.errors.required">Este campo é obrigatório!</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <input type="url" formControlName="website" class="input" placeholder="URL do site" />
+              <label class="label">URL do site</label>
+            </div>
+            <div *ngIf="form.controls.website.errors && form.controls.website.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.website.errors.required">Este campo é obrigatório!</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="select">
+              <select formControlName="budget" class="input">
+                <option value="" disabled selected>Verba mensal de mídia</option>
+                <option> <= R$5.000 </option>
+                <option> >= R$5.001 e <= R$30.000 </option>
+                <option> >= R$30.001 e <= R$100.000 </option>
+                <option> >= R$100.001 e <= R$500.000 </option>
+                <option> >= R$500.001 </option>
+                <option> Não se aplica </option>
+              </select>
+            </div>
+            <div *ngIf="form.controls.budget.errors && form.controls.budget.touched" class="invalid-feedback">
+              <p class="help is-danger"  *ngIf="form.controls.budget.errors.required">Este campo é obrigatório!</p>
+            </div>
+          </div>
+          <div class="buttons is-centered">
+            <button class="button is-primary" [ngClass]="{'is-outlined fade-in': buttonState}" (click)="toggleState()" type="submit" [disabled]="!this.form.valid">{{ buttonLabel }}</button>
+          </div>
+          <p class="help is-info"  *ngIf="buttonState">Entraremos em contato em 24hs úteis.</p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="columns is-centered">
+      <div class="column  is-two-thirds">
+        <p class="help has-text-centered"  *ngIf="buttonState">*Para usar o trial grátis você precisa ser um e-commerce e concordar com os termos e requisitos do trial gratuito. Saiba mais em: <a href="#">Termos e requisitos de trial gratuito</a></p>
+      </div>
+    </div>
+  </div>
+</div>
